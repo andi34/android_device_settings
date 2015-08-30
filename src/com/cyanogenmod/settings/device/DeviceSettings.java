@@ -56,6 +56,8 @@ public class DeviceSettings extends FragmentActivity {
         mTabsAdapter = new TabsAdapter(this, mViewPager);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.category_dock_title),
                 DockFragmentActivity.class, null);
+        mTabsAdapter.addTab(bar.newTab().setText(R.string.category_kernel_module_title),
+                KernelModule.class, null);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.about_action),
                 AboutFragment.class, null);
 

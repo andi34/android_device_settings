@@ -25,5 +25,11 @@ public class Startup extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, final Intent bootintent) {
         DockFragmentActivity.restore(context);
+
+        if (context.getSharedPreferences("prefs", Context.MODE_PRIVATE).getBoolean("moduleactive", false)) {
+            RootUtils.SU su = new RootUtils.SU();
+            su.runCommand("insmod " + KernelModule.SEC_DOC_KEYBOARD_PATH);
+            su.close();
+        }
     }
 }
